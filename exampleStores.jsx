@@ -1,6 +1,7 @@
 import useMyContext from "@ben-gee723/use-context-hook";
 
 const [ CounterContext, counterStore ] = useMyContext({
+    name: "counter",
     init: {
         count: 0
     },

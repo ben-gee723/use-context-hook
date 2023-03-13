@@ -5,20 +5,29 @@
 
 ## 0. Set-Up: `useMyContext.jsx` 
 This section has already been established to create a function which:
- - the hook `useMyContext` takes an object as an argument where the initital state and functions will be defined 
+ - the hook `useMyContext` takes an object as an argument where a name, the initital state and functions will be defined
+ - the name will be use in conjunction with localStorage to persist the store (may be edited later to account for backage storage)
  - the initial context is initialised with `createContext`
  - a named export "ParentContext" Element which provides through a `Context.Provider` the context to its children, and lastly
  - the default export "store" which is a small function which calls on `useContext(IntitalContext)`
 
 Which returns the ParentContext Element and store in an Array:
 ```jsx
-import { createContext, useState, useContext } from "react";
+import { createContext, useState, useEffect, useContext } from "react";
 
-const useMyContext = ({init, functions}) => {
+const useMyContext = ({name, init, functions}) => {
     const InitialContext = createContext();
     
     function ParentContext ({ children }){
-        const [state, setState] = useState(init);
+        const ls = JSON.parse(localStorage.getItem(name));
+        const initalState = ls ? ls: init;
+
+        const [state, setState] = useState(initalState);
+        
+        useEffect(()=> {
+        localStorage.setItem(name, JSON.stringify(state))
+        }, [state])
+
         
         const value = [state, setState, functions];
         
@@ -38,7 +47,7 @@ const useMyContext = ({init, functions}) => {
 #
 
 ## 1. Implmentation
- - The function `useMyContext` takes an object as an argument where the initital state and functions will be defined
+ - The function `useMyContext` takes an object as an argument where the name, initital state and functions will be defined
  - It is structured so that the return value will give back the a ParentContext Element and the store, thanks to already being declared within the set-up
 
 ### Syntax:
@@ -57,6 +66,7 @@ Where:
 
 ```jsx
 const [CounterContext, counterStore] = useMyContext({
+    name: "counter",
     init: { counter: 0 },
     functions: {
         increase: (state, setState) => setState({...state, count: state.count + 1}),

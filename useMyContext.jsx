@@ -1,10 +1,17 @@
 import React, { createContext, useState, useContext } from "react";
 
-const useMyContext = ({ init, functions }) => {
+const useMyContext = ({ name, init, functions }) => {
   const InitialContext = createContext();
 
   function ParentContext({ children }) {
-    const [state, setState] = useState(init);
+    const ls = JSON.parse(localStorage.getItem(name));
+    const initalState = ls ? ls: init;
+
+    const [state, setState] = useState(initalState);
+    
+    useEffect(()=> {
+      localStorage.setItem(name, JSON.stringify(state))
+    }, [state])
 
     const value = [state, setState, functions];
 
