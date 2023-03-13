@@ -1,0 +1,15 @@
+{
+  "name": "@ben-gee723/use-context-hook",
+  "version": "1.0.5",
+  "description": "",
+  "main": "useMyContext.jsx",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "ben-gee723",
+  "license": "ISC",
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  }
+}
