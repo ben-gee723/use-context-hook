@@ -53,7 +53,7 @@ Where:
  - `functions` - the functions also stored in an object
 
 ### Example: in `exampleStores.jsx`
- - After the calling of the hook, both the Context-Element and the store will be exported as name exports
+ - After the calling of the hook, both the Context-Element and the store will be exported as named exports
 
 ```jsx
 const [CounterContext, counterStore] = useMyContext({
@@ -92,18 +92,21 @@ ReactDOM.createRoot(document.getElementById('root')).render(
  - Lastly, the store will be imported into the desired Component to be used
 
 ### Syntax 1: `store`
- - The Information from the store will be deconstructed in order to name and access the information, like so:
+ - The Information from the store will be deconstructed in order to name and access the information, 
+ - Very much like using useState from before,
 
+Like so:
 ```jsx
 const [state, setState, functions] = counterStore();
 ```
+
 Where:
  - `state` - state of the store derived from the useState in the set-up
  - `setState` - setState function derived from the useState in the set-up
  - `functions` - the object of functions declared in the useMyContext argument
 
 ### Example:
-- Since the functions are declared in an object, it is also possible to destructure only the necessary functions to be used#
+- Since the functions are declared in an object, it is also possible to destructure only the necessary functions to be used
 - it is unfortunately not possible to destructure the state value, since we will require that for the handlers (shown in a sec `;)` )
 
 ```jsx
@@ -143,7 +146,7 @@ export default App
 #
 
 ### Example:
- - Here is an example of it in `App.jsx`
+ - Here is an example of it in `exampleApp.jsx`
 
 ```jsx
 import './styles/App.css'

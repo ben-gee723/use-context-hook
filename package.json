@@ -3,6 +3,7 @@
   "version": "1.0.7",
   "description": "",
   "main": "useMyContext.jsx",
+  "keywords":["node", "javascript", "react", "hook", "hooks", "context"],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
