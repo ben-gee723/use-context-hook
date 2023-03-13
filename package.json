@@ -1,6 +1,6 @@
 {
   "name": "@ben-gee723/use-context-hook",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "description": "",
   "main": "useMyContext.jsx",
   "keywords":["node", "javascript", "react", "hook", "hooks", "context"],
