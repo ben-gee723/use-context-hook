@@ -1,6 +1,6 @@
 {
   "name": "@ben-gee723/use-context-hook",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "",
   "main": "useMyContext.jsx",
   "scripts": {
