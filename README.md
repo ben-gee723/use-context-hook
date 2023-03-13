@@ -3,7 +3,7 @@
 
 #
 
-## 0. Set-Up: `index.jsx` 
+## 0. Set-Up: `useMyContext.jsx` 
 This section has already been established to create a function which:
  - the function `useMyContext` takes an object as an argument where the initital state and functions will be defined 
  - the initial context is initialised with `createContext`
