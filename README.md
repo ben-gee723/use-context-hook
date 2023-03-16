@@ -25,9 +25,8 @@ const useMyContext = ({name, init, functions}) => {
         const [state, setState] = useState(initalState);
         
         useEffect(()=> {
-        localStorage.setItem(name, JSON.stringify(state))
+            localStorage.setItem(name, JSON.stringify(state))
         }, [state])
-
         
         const value = [state, setState, functions];
         
