@@ -43,10 +43,25 @@ const useMyContext = ({name, init, functions}) => {
     return [ParentContext, store];
 }
 ```
+#
+
+## 1. Installing:
+ - the package can be installed with the following command:
+
+```
+    npm install @ben-gee723/use-context-hook
+```
 
 #
 
-## 1. Implmentation
+## 2. Importing and Implmentation
+ - After installing the package, we then need to import the function from the package
+
+### For example in `exampleStores.jsx`
+```jsx
+    import useMyContext from "@ben-gee723/use-context-hook";
+```
+
  - The function `useMyContext` takes an object as an argument where the name, initital state and functions will be defined
  - It is structured so that the return value will give back the a ParentContext Element and the store, thanks to already being declared within the set-up
 
@@ -66,6 +81,8 @@ Where:
  - After the calling of the hook, both the Context-Element and the store will be exported as named exports
 
 ```jsx
+import useMyContext from "@ben-gee723/use-context-hook"; 
+
 const [CounterContext, counterStore] = useMyContext({
     name: "counter",
     init: { count: 0 },
@@ -80,7 +97,7 @@ export { CounterContext, counterStore };
 
 #
 
-## 2. Wrap ParentContext
+## 3. Wrap ParentContext
  - Like normal, the ParentContext Element will be wrapped around the desired children elements
  - In the example below, it shows the ParentContext Element wrapped around the entire App Component
 
@@ -99,10 +116,10 @@ ReactDOM.createRoot(document.getElementById('root')).render(
 
 #
 
-## 3.1 Usage - store import and declaration
+## 4.1 Usage - store import and declaration
  - Lastly, the store will be imported into the desired Component to be used
 
-### Syntax 1: `store`
+### Syntax: `store`
  - The information from the store will be deconstructed in order to name and access the information, 
  - Very much like using useState from before,
 
@@ -138,7 +155,7 @@ export default App
 
 #
 
-## 3.2 Usage - state and handlers
+## 4.2 Usage - state and handlers
 
 ### Syntax 1: displaying the `state`
  - In order to display the information, we can can use dot notation
