@@ -58,7 +58,7 @@ Where:
  - `ContextName` - the name of the ParentContext Element
  - `StoreName` - the name of the store to be created
  - `useMyContext` - the hook called with the object as argument
- - `name` - the name of the context (which will be used in conjunction with the localStorage)
+ - `name` - the name of the context as a string (which will be used in conjunction with the localStorage)
  - `init` - the initial values stored in an object
  - `functions` - the functions also stored in an object
 
@@ -68,7 +68,7 @@ Where:
 ```jsx
 const [CounterContext, counterStore] = useMyContext({
     name: "counter",
-    init: { counter: 0 },
+    init: { count: 0 },
     functions: {
         increase: (state, setState) => setState({...state, count: state.count + 1}),
         decrease: (state, setState) => setState({...state, count: state.count - 1}),
@@ -182,3 +182,9 @@ export default App;
 #
 
 ## I hope this helps with your use of multiple contexts!
+
+#
+
+#
+
+## Advanced Implmentations (tba)
