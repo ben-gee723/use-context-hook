@@ -6,7 +6,7 @@
 ## 0. Set-Up: `useMyContext.jsx` 
 This section has already been established to create a function which:
  - the hook `useMyContext` takes an object as an argument where a name, the initital state and functions will be defined
- - the name will be use in conjunction with localStorage to persist the store (may be edited later to account for backage storage)
+ - the name will be use in conjunction with localStorage to persist the store (may be edited later to account for backend storage)
  - the initial context is initialised with `createContext`
  - a named export "ParentContext" Element which provides through a `Context.Provider` the context to its children, and lastly
  - the default export "store" which is a small function which calls on `useContext(IntitalContext)`
@@ -52,12 +52,13 @@ const useMyContext = ({name, init, functions}) => {
 
 ### Syntax:
 ```jsx
-    const [<ContextName>, <StoreName>] = useMyContext({ init: {}, functions: {}})
+    const [<ContextName>, <StoreName>] = useMyContext({ name: "name", init: {}, functions: {}})
 ```
 Where:
- - `ContextName` - The name of the ParentContext Element
- - `StoreName` - The name of the store to be created
- - `useMyContext` - The hook called with the object as argument
+ - `ContextName` - the name of the ParentContext Element
+ - `StoreName` - the name of the store to be created
+ - `useMyContext` - the hook called with the object as argument
+ - `name` - the name of the context (which will be used in conjunction with the localStorage)
  - `init` - the initial values stored in an object
  - `functions` - the functions also stored in an object
 
@@ -80,7 +81,7 @@ export { CounterContext, counterStore };
 #
 
 ## 2. Wrap ParentContext
- - Like normal, the ParentContext Element will be wrapped around the desired children elements,
+ - Like normal, the ParentContext Element will be wrapped around the desired children elements
  - In the example below, it shows the ParentContext Element wrapped around the entire App Component
 
 ```jsx
@@ -102,22 +103,23 @@ ReactDOM.createRoot(document.getElementById('root')).render(
  - Lastly, the store will be imported into the desired Component to be used
 
 ### Syntax 1: `store`
- - The Information from the store will be deconstructed in order to name and access the information, 
+ - The information from the store will be deconstructed in order to name and access the information, 
  - Very much like using useState from before,
 
 Like so:
 ```jsx
-const [state, setState, functions] = counterStore();
+const [state, setState, functions] = store();
 ```
 
 Where:
  - `state` - state of the store derived from the useState in the set-up
  - `setState` - setState function derived from the useState in the set-up
  - `functions` - the object of functions declared in the useMyContext argument
+ - `store()` - the calling of the store function
 
 ### Example:
 - Since the functions are declared in an object, it is also possible to destructure only the necessary functions to be used
-- it is unfortunately not possible to destructure the state value, since we will require that for the handlers (shown in a sec `;)` )
+- It is unfortunately not possible to destructure the state value, since we will require that for the handlers (shown in a sec `;)` )
 
 ```jsx
 import './styles/App.css'
