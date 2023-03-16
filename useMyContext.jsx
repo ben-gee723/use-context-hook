@@ -23,9 +23,9 @@ const useMyContext = ({ name, init, functions }) => {
     );
   }
 
-  const store = () => useContext(InitialContext);
+  const Store = () => useContext(InitialContext);
 
-  return [ParentContext, store];
+  return [ParentContext, Store];
 };
 
 export default useMyContext;

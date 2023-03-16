@@ -11,4 +11,15 @@ const [ CounterContext, counterStore ] = useMyContext({
     }
 })
 
-export { CounterContext, counterStore };
+const [ UserContext, userStore ] = useMyContext({
+    name: "user",
+    init: {
+        name: "John Doe",
+        email: "john.doe@jd.com",
+        data: []
+    },
+    functions: {
+    }
+})
+
+export { CounterContext, counterStore, UserContext, userStore };

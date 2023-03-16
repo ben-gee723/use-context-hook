@@ -9,7 +9,7 @@ This section has already been established to create a function which:
  - the name will be use in conjunction with localStorage to persist the store (may be edited later to account for backend storage)
  - the initial context is initialised with `createContext`
  - creates a named export "ParentContext" Element which provides through a `Context.Provider` the context to its children, and lastly
- - creates the default export "store" which is a small function which calls on `useContext(IntitalContext)`
+ - creates the default export "store" which is a small JSX-Component which calls on `useContext(IntitalContext)`
 
 Which returns the ParentContext Element and store in an Array:
 ```jsx
@@ -38,9 +38,9 @@ const useMyContext = ({name, init, functions}) => {
         )
     }
 
-    const store = () => useContext(InitialContext);
+    const Store = () => useContext(InitialContext);
 
-    return [ParentContext, store];
+    return [ParentContext, Store];
 }
 ```
 #
@@ -63,7 +63,7 @@ const useMyContext = ({name, init, functions}) => {
 ```
 
  - The function `useMyContext` takes an object as an argument where the name, initital state and functions will be defined
- - It is structured so that the return value will give back the a ParentContext Element and the store, thanks to already being declared within the set-up
+ - It is structured so that the return value will give back a ParentContext Component and the Store, thanks to already being declared within the set-up
 
 ### Syntax:
 ```jsx
@@ -101,6 +101,7 @@ export { CounterContext, counterStore };
  - Like normal, the ParentContext Element will be wrapped around the desired children elements
  - In the example below, it shows the ParentContext Element wrapped around the entire App Component
 
+Example `exampleMain.jsx`
 ```jsx
 import React from 'react'
 import App from './App'
@@ -137,6 +138,7 @@ Where:
 ### Example:
 - Since the functions are declared in an object, it is also possible to destructure only the necessary functions to be used
 - It is unfortunately not possible to destructure the state value, since we will require that for the handlers (shown in a sec `;)` )
+    - (Or after this initial declaration, you could deconstruct the state object further)
 
 ```jsx
 import './styles/App.css'
@@ -144,6 +146,9 @@ import { counterStore } from './store/stores'
 
 function App() {
   const [counter, setCounter, { increase, decrease }] = counterStore();
+
+  // Further Deconstructed Object
+  const { count } = counter;
 
   return (
     // ...
@@ -158,13 +163,25 @@ export default App
 ## 4.2 Usage - state and handlers
 
 ### Syntax 1: displaying the `state`
- - In order to display the information, we can can use dot notation
+ - In order to display the information, we can can use dot or bracket notation
+
 ```jsx
     <h1>{counter.count}</h1>
+    <h1>{counter["count"]}</h1>
+```
+
+ - Or with a further deconstructed state object
+```jsx
+    const [counter, setCounter, { increase, decrease }] = counterStore();
+    const { count } = counter;
+
+    return (
+        <h1>{count}</h1>
+    )
 ```
 
 ### Syntax 2: `handler` functionss
- - The handler functions can be impleted shown below:
+ - The handler functions can be impleted as shown below:
 
 ```jsx
     <button onClick={() => increase(counter, setCounter)}>Increase</button>
