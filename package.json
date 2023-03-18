@@ -1,6 +1,6 @@
 {
   "name": "@ben-gee723/use-context-hook",
-  "version": "1.1.5",
+  "version": "1.1.6",
   "description": "",
   "main": "useMyContext.jsx",
   "keywords":["node", "javascript", "react", "hook", "hooks", "context"],
@@ -9,7 +9,7 @@
   },
   "author": "ben-gee723",
   "license": "ISC",
-  "devDependencies": {
+  "dependencies": {
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
