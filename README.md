@@ -6,9 +6,9 @@
 ## 0. Set-Up: `useMyContext.jsx` 
 This section has already been established to create a function which:
  - the hook `useMyContext` takes an object as an argument where a name, the initital state and functions will be defined
- - the name will be use in conjunction with localStorage to persist the store (may be edited later to account for backend storage)
- - the initial context is initialised with `createContext`
- - creates a named export "ParentContext" Element which provides through a `Context.Provider` the context to its children, and lastly
+ - the name will be used in conjunction with localStorage to persist the store (may be edited later to account for backend storage)
+ - the initial context is initialised with `createContext
+ - creates a named export "ParentContext" Element which provides  the context to its children through a `Context.Provider`, and lastly
  - creates the default export "store" which is a small JSX-Component which calls on `useContext(IntitalContext)`
 
 Which returns the ParentContext Element and store in an Array:
@@ -120,7 +120,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
  - Lastly, the store will be imported into the desired Component to be used
 
 ### Syntax: `store`
- - The information from the store will be deconstructed in order to name and access the information, 
+ - The information from the store will be desctructured in order to name and access the information, 
  - Very much like using useState from before,
 
 Like so:
@@ -137,7 +137,7 @@ Where:
 ### Example:
 - Since the functions are declared in an object, it is also possible to destructure only the necessary functions to be used
 - It is unfortunately not possible to destructure the state value, since we will require that for the handlers (shown in a sec `;)` )
-    - (Or after this initial declaration, you could deconstruct the state object further)
+    - (Or after this initial declaration, you could destructure the state object further)
 
 ```jsx
 import './styles/App.css'
@@ -146,7 +146,7 @@ import { counterStore } from './store/stores'
 function App() {
   const [counter, setCounter, { increase, decrease }] = counterStore();
 
-  // Further Deconstructed Object
+  // Further destructured Object
   const { count } = counter;
 
   return (
@@ -169,7 +169,7 @@ export default App
     <h1>{counter["count"]}</h1>
 ```
 
- - Or with a further deconstructed state object
+ - Or with a further destructured state object
 ```jsx
     const [counter, setCounter, { increase, decrease }] = counterStore();
     const { count } = counter;
@@ -215,8 +215,6 @@ export default App;
 #
 
 ## I hope this helps with your use of multiple contexts!
-
-#
 
 #
 

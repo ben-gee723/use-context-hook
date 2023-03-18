@@ -1,10 +1,12 @@
 import React from 'react'
 import App from './App'
 
-import { CounterContext } from './store/stores'
+import { CounterContext, FormContext } from './store/stores'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
     <CounterContext>
-        <App />
+        <FormContext>
+            <App />
+        </FormContext>
     </CounterContext>
 )

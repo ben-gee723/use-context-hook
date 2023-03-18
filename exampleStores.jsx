@@ -11,15 +11,17 @@ const [ CounterContext, counterStore ] = useMyContext({
     }
 })
 
-const [ UserContext, userStore ] = useMyContext({
-    name: "user",
+const [ FormContext, formStore ] = useMyContext({
+    name: "form",
     init: {
-        name: "John Doe",
-        email: "john.doe@jd.com",
-        data: []
+        name: "",
+        email: "",
+        isLogin: null
     },
     functions: {
+        onInputChange: (state, setState, {target}) => setState({...state, [target.name]: target.value}),
+        submit: (e, user) => {},
     }
 })
 
-export { CounterContext, counterStore, UserContext, userStore };
+export { CounterContext, counterStore, FormContext, formStore };
